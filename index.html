@@ -1,0 +1,59 @@
+---
+layout: default
+title:  joshtronic
+---
+
+<img src="{{ site.avatar }}?s=64" class="avatar" />
+<img src="{{ site.avatar }}?s=128" class="avatar-large" />
+
+<header>
+	<h1>{{ site.title }}</h1>
+	<h2>{{ site.description }}</h2>
+</header>
+
+<h3 class="clear">Socially Antisocial</h3>
+<p class="social">
+	<span>&nbsp;</span><a href="https://www.facebook.com/HarryZD">Facebook</a>&nbsp;
+	&nbsp;<a href="https://github.com/HarryZD">GitHub</a>&nbsp;
+	&nbsp;<a href="https://plus.google.com/110434894855214755657">Google+</a>&nbsp;
+	&nbsp;<a href="http://instagram.com">this is too gaoduan</a>&nbsp;
+	&nbsp;<a href="http://www.renren.com/">RENREN 周东东HarryZD</a>&nbsp;
+	&nbsp;<a href="http://weibo.com/harryzd">SINA micblog</a>&nbsp;
+	&nbsp;<a href="http://harryzd.tumblr.com/">nullr</a>&nbsp;
+	&nbsp;<a href="https://twitter.com/HarryZD">Twitter</a>&nbsp;
+</p>
+
+{% assign year = nil %}
+<h3>Blog Posts</h3>
+{% for post in site.posts %}
+	{% assign current_year = post.date | date: "%Y" %}
+	{% if year != current_year %}
+		{% if year != nil %}
+			</table>
+		{% endif %}
+		<h4 data-year="{{ post.date | date: "%Y" }}">
+			<span>{% if current_year != "2013" %}+{% else %}-{% endif %}</span>
+			{{ current_year }}
+		</h4>
+		<table data-year="{{ post.date | date: "%Y" }}"{% if current_year != "2013" %} class="hide"{% endif %}>
+		{% assign year = current_year %}
+	{% endif %}
+	<tr>
+		<td class="nowrap"><time>{{ post.date | date: "%d %b <span>%Y</span>" }}</time>{{ site.delimiter }}</td>
+		<td><a href="{{ post.url }}">{{ post.title }}</a></td>
+	</tr>
+{% endfor %}
+</table>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+	$(function()
+	{
+		$('h4').click(function()
+		{
+			var table = $('table[data-year="' + $(this).attr('data-year') + '"]');
+			$('span', this).html($('span', this).html() == '+' ? '-' : '+');
+			table.toggle();
+		});
+	});
+</script>
