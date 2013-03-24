@@ -1,7 +1,7 @@
-joshtronic.com
+harryzd.org HarryZD的个人博客。theme from joshtronic.com
 ==============
 
-This repository is automatically transformed by Jekyll into a static site whenever I push it to GitHub.
+
 
 License
 -------
