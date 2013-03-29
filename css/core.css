@@ -32,6 +32,23 @@ p
 {
 	line-height: 22px;
 }
+pre {
+  background: #fee9cc;
+  border: 1px dashed #ccc;
+  width: 90%;
+  line-height: 16px;
+}
+code {
+  padding: 0px;
+  border: none;
+  line-height: 16px;
+}
+p code {
+  background: hsl(0,0%,20%);
+  color: white;
+  margin: 0px 1px;
+  padding: 1px 4px;
+}
 
 time,
 h4 span
